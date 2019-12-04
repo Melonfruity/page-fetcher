@@ -8,12 +8,13 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// Uses readline question to get input
 
 fs.exists('/etc/passwd', (exists) => {
   console.log(exists ? 'it\'s there' : 'no passwd!');
   if(exists){
     rl.question(`Overwrite? Y/N\n`, (ans) => {
-      if (ans === 'Y') {
+      if (ans.toUpperCase() === 'Y') {
         writeToFile(link, destination);
       } 
       rl.close();
